@@ -3,783 +3,770 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>L'art de la collecte de données avec KoboToolbox — Aminou RABIOU</title>
-
-<meta name="description" content="Guide terrain KoboToolbox + 5 templates XLSForm prêts à déployer. Conçu pour les professionnels MEAL en Afrique de l'Ouest et au Sahel. 20 000 FCFA.">
-<meta name="keywords" content="kobotoolbox, xlsform, meal, collecte données, humanitaire, niger, sahel, ebook, templates">
+<title>Aminou RABIOU — Expert SI & ICT4D | Niamey, Niger</title>
+<meta name="description" content="Expert SI & ICT4D basé à Niamey, Niger. Solutions digitales MEAL, dashboards Power BI, collecte de données KoboToolbox, et applications mobiles pour l'Afrique de l'Ouest.">
+<meta name="keywords" content="ICT4D, MEAL, KoboToolbox, Power BI, Niger, Sahel, dashboard, XLSForm, data collection, humanitaire">
 <meta name="author" content="Aminou RABIOU">
-<meta property="og:title" content="L'art de la collecte de données avec KoboToolbox">
-<meta property="og:description" content="Manuel PDF 53 pages + 5 templates XLSForm. Conçu pour les professionnels MEAL au Sahel. 20 000 FCFA.">
-<meta property="og:type" content="product">
-<meta property="og:url" content="https://rabiouaminou.github.io/kobotoolbox-meal">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="KoboToolbox MEAL Bundle — Aminou RABIOU">
-<meta name="twitter:description" content="Guide terrain + 5 templates XLSForm. 20 000 FCFA. Paiement Gumroad / Wave / MyNita.">
-
+<meta property="og:title" content="Aminou RABIOU — Expert SI & ICT4D">
+<meta property="og:description" content="Solutions digitales MEAL & ICT4D pour l'Afrique de l'Ouest. Produits, formations et consulting depuis Niamey, Niger.">
+<meta property="og:url" content="https://rabiouaminou.github.io">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root {
-  --blue:    #014D6D;
-  --orange:  #D6A70A;
-  --dark:    #2D3748;
-  --soft:    #F8F9FA;
-  --white:   #FFFFFF;
-  --muted:   #6B7280;
-  --danger:  #C0392B;
-  --success: #1A7F4B;
-  --shadow:  0 4px 32px rgba(1,77,109,.12);
-  --radius:  12px;
+:root{
+  --blue:#014D6D; --orange:#D6A70A; --dark:#2D3748;
+  --soft:#F8F9FA; --white:#FFFFFF; --muted:#6B7280;
+  --red:#C0392B; --green:#1A7F4B;
+  --shadow:0 4px 32px rgba(1,77,109,.10);
+  --radius:12px;
 }
-*, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:var(--dark);background:var(--white);overflow-x:hidden}
 
-body {
-  font-family: 'DM Sans', sans-serif;
-  color: var(--dark);
-  background: var(--white);
-  overflow-x: hidden;
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:999;
+  background:rgba(1,77,109,.97);
+  backdrop-filter:blur(12px);
+  padding:0 48px;
+  display:flex;align-items:center;justify-content:space-between;
+  height:64px;
+  box-shadow:0 2px 20px rgba(0,0,0,.2);
 }
+.nav-brand{
+  font-family:'Playfair Display',serif;
+  font-size:1.15rem;font-weight:700;color:var(--white);
+  text-decoration:none;letter-spacing:-.01em;
+}
+.nav-brand span{color:var(--orange)}
+.nav-links{display:flex;gap:32px;align-items:center}
+.nav-links a{
+  color:rgba(255,255,255,.8);font-size:.85rem;font-weight:500;
+  text-decoration:none;transition:color .2s;letter-spacing:.04em;
+}
+.nav-links a:hover{color:var(--orange)}
+.nav-cta{
+  background:var(--orange);color:white!important;
+  padding:8px 20px;border-radius:99px;font-weight:600!important;
+  transition:transform .2s,box-shadow .2s!important;
+}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(214,167,10,.4)}
+.lang-toggle{
+  display:flex;gap:4px;background:rgba(255,255,255,.1);
+  border-radius:99px;padding:3px;
+}
+.lang-btn{
+  padding:4px 10px;border-radius:99px;font-size:.75rem;
+  font-weight:600;cursor:pointer;border:none;
+  color:rgba(255,255,255,.7);background:transparent;
+  transition:all .2s;font-family:'DM Sans',sans-serif;
+}
+.lang-btn.active{background:var(--orange);color:white}
 
 /* ── HERO ── */
-.hero {
-  background: linear-gradient(135deg, var(--blue) 0%, #023d57 60%, #01293c 100%);
-  color: white;
-  padding: 0;
-  position: relative;
-  overflow: hidden;
-  min-height: 92vh;
-  display: flex;
-  align-items: center;
+.hero{
+  min-height:100vh;
+  background:linear-gradient(135deg,var(--blue) 0%,#023d57 60%,#01293c 100%);
+  display:flex;align-items:center;
+  position:relative;overflow:hidden;
+  padding-top:64px;
 }
-.hero::before {
-  content:'';
-  position:absolute; inset:0;
-  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
 }
-.hero-accent {
-  position:absolute; left:0; top:0; bottom:0;
-  width:6px;
-  background: linear-gradient(to bottom, var(--orange), #f0c030, var(--orange));
+.hero-accent{position:absolute;left:0;top:0;bottom:0;width:6px;background:linear-gradient(to bottom,var(--orange),#f0c030,var(--orange))}
+.hero-inner{
+  position:relative;z-index:2;max-width:1100px;margin:0 auto;
+  padding:80px 48px;
+  display:grid;grid-template-columns:1fr 340px;gap:60px;align-items:center;width:100%;
 }
-.hero-content {
-  position:relative; z-index:2;
-  max-width:1100px; margin:0 auto;
-  padding: 80px 48px;
-  display: grid;
-  grid-template-columns: 1fr 380px;
-  gap: 60px;
-  align-items: center;
-  width:100%;
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(214,167,10,.15);border:1px solid rgba(214,167,10,.4);
+  color:#f0c030;padding:6px 16px;border-radius:99px;
+  font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  margin-bottom:24px;
 }
-.hero-badge {
-  display:inline-flex; align-items:center; gap:8px;
-  background: rgba(214,167,10,.15);
-  border: 1px solid rgba(214,167,10,.4);
-  color: #f0c030;
-  padding: 6px 16px;
-  border-radius: 99px;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  margin-bottom: 24px;
-}
-.hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2.2rem, 4vw, 3.4rem);
-  font-weight: 900;
-  line-height: 1.12;
-  margin-bottom: 20px;
-  letter-spacing: -.02em;
-}
-.hero h1 span { color: var(--orange); }
-.hero-sub {
-  font-size: 1.1rem;
-  font-weight: 300;
-  opacity: .85;
-  line-height: 1.7;
-  max-width: 520px;
-  margin-bottom: 36px;
-}
-.hero-stats {
-  display:flex; gap:32px; margin-bottom:40px;
-}
-.stat { text-align:center; }
-.stat-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem; font-weight:700;
-  color: var(--orange);
-  display:block;
-}
-.stat-label { font-size:.75rem; opacity:.7; letter-spacing:.06em; text-transform:uppercase; }
-
-/* ── PRICE CARD ── */
-.price-card {
-  background: white;
-  border-radius: 20px;
-  padding: 36px 32px;
-  box-shadow: 0 20px 60px rgba(0,0,0,.3);
-  color: var(--dark);
-  position: relative;
-  overflow: hidden;
-}
-.price-card::before {
-  content:'';
-  position:absolute; top:0; left:0; right:0; height:4px;
-  background: linear-gradient(90deg, var(--blue), var(--orange));
-}
-.price-card-tag {
-  background: var(--orange);
-  color: white;
-  font-size:.7rem; font-weight:700;
-  letter-spacing:.1em; text-transform:uppercase;
-  padding:4px 12px; border-radius:99px;
-  display:inline-block; margin-bottom:16px;
-}
-.price-old {
-  font-size:.95rem; color:var(--muted);
-  text-decoration:line-through; margin-bottom:4px;
-}
-.price-main {
+.hero h1{
   font-family:'Playfair Display',serif;
-  font-size:3.2rem; font-weight:900;
-  color:var(--blue); line-height:1;
-  margin-bottom:4px;
+  font-size:clamp(2.4rem,4vw,3.6rem);font-weight:900;
+  line-height:1.1;letter-spacing:-.02em;color:white;margin-bottom:16px;
 }
-.price-sub { font-size:.85rem; color:var(--muted); margin-bottom:24px; }
-.price-includes {
-  list-style:none; margin-bottom:28px;
+.hero h1 span{color:var(--orange)}
+.hero-sub{font-size:1rem;font-weight:300;opacity:.85;line-height:1.7;color:white;max-width:500px;margin-bottom:32px}
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:36px}
+.tag{
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
+  color:rgba(255,255,255,.85);padding:5px 12px;border-radius:99px;
+  font-size:.75rem;font-weight:500;
 }
-.price-includes li {
-  padding:7px 0;
-  border-bottom:1px solid #f0f0f0;
-  font-size:.9rem;
-  display:flex; align-items:center; gap:10px;
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-hero-primary{
+  background:var(--orange);color:white;padding:14px 28px;
+  border-radius:var(--radius);font-weight:700;font-size:.95rem;
+  text-decoration:none;transition:transform .2s,box-shadow .2s;
 }
-.price-includes li:last-child { border-bottom:none; }
-.price-includes .check { color:var(--success); font-size:1rem; }
-.btn-primary {
-  display:block; width:100%;
-  background: linear-gradient(135deg, var(--blue), #025f87);
-  color:white; border:none;
-  padding:16px 24px; border-radius:var(--radius);
-  font-family:'DM Sans',sans-serif;
-  font-size:1rem; font-weight:600;
-  cursor:pointer; text-align:center;
-  text-decoration:none;
-  transition: transform .2s, box-shadow .2s;
-  margin-bottom:12px;
+.btn-hero-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(214,167,10,.4)}
+.btn-hero-secondary{
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.3);
+  color:white;padding:14px 28px;border-radius:var(--radius);
+  font-weight:600;font-size:.95rem;text-decoration:none;transition:background .2s;
 }
-.btn-primary:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(1,77,109,.35); }
-.btn-secondary {
-  display:block; width:100%;
-  background: linear-gradient(135deg, var(--orange), #c49a00);
-  color:white; border:none;
-  padding:14px 24px; border-radius:var(--radius);
-  font-family:'DM Sans',sans-serif;
-  font-size:.95rem; font-weight:600;
-  cursor:pointer; text-align:center;
-  text-decoration:none;
-  transition: transform .2s;
+.btn-hero-secondary:hover{background:rgba(255,255,255,.18)}
+
+/* ── PROFILE CARD ── */
+.profile-card{
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);
+  border-radius:20px;padding:36px 28px;text-align:center;
+  backdrop-filter:blur(8px);
 }
-.btn-secondary:hover { transform:translateY(-2px); }
-.trust-note {
-  text-align:center; font-size:.75rem;
-  color:var(--muted); margin-top:12px;
+.profile-avatar{
+  width:90px;height:90px;border-radius:50%;margin:0 auto 16px;
+  background:linear-gradient(135deg,var(--orange),#c49a00);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:900;color:white;
 }
+.profile-name{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:white;margin-bottom:4px}
+.profile-title{color:var(--orange);font-weight:600;font-size:.85rem;margin-bottom:20px}
+.profile-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
+.stat-item{background:rgba(255,255,255,.08);border-radius:8px;padding:12px 8px;text-align:center}
+.stat-num{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--orange);display:block}
+.stat-lbl{font-size:.7rem;color:rgba(255,255,255,.65);text-transform:uppercase;letter-spacing:.06em}
+.profile-location{color:rgba(255,255,255,.6);font-size:.8rem}
 
 /* ── SECTIONS ── */
-.section { padding: 80px 48px; max-width:1100px; margin:0 auto; }
-.section-label {
-  font-size:.75rem; font-weight:700;
-  letter-spacing:.12em; text-transform:uppercase;
-  color:var(--orange); margin-bottom:12px;
+section{padding:80px 48px}
+.section-inner{max-width:1100px;margin:0 auto}
+.section-label{font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.4rem);font-weight:700;color:var(--blue);line-height:1.2;margin-bottom:16px}
+.section-lead{font-size:1rem;color:var(--muted);max-width:600px;line-height:1.7;margin-bottom:48px}
+.divider{border:none;height:1px;background:linear-gradient(90deg,transparent,#d1e8f0,transparent);margin:0}
+
+/* ── SERVICES ── */
+#services{background:var(--soft)}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.service-card{
+  background:white;border-radius:var(--radius);padding:32px 28px;
+  border-top:4px solid var(--blue);
+  box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s;
 }
-.section-title {
+.service-card:hover{transform:translateY(-4px);box-shadow:0 8px 40px rgba(1,77,109,.15)}
+.service-card.orange{border-top-color:var(--orange)}
+.service-icon{font-size:2.2rem;margin-bottom:16px}
+.service-card h3{font-size:1.1rem;font-weight:700;color:var(--blue);margin-bottom:8px}
+.service-card p{font-size:.875rem;color:var(--muted);line-height:1.7}
+
+/* ── PRODUITS ── */
+.products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px}
+.product-card{
+  background:white;border-radius:20px;overflow:hidden;
+  box-shadow:var(--shadow);transition:transform .2s;
+}
+.product-card:hover{transform:translateY(-4px)}
+.product-header{
+  background:linear-gradient(135deg,var(--blue),#025f87);
+  padding:28px 28px 20px;color:white;position:relative;
+}
+.product-header.orange{background:linear-gradient(135deg,#c49a00,var(--orange))}
+.product-badge{
+  position:absolute;top:16px;right:16px;
+  background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.3);
+  color:white;font-size:.7rem;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;padding:4px 10px;border-radius:99px;
+}
+.product-badge.new{background:var(--orange);border-color:var(--orange)}
+.product-icon{font-size:2.4rem;margin-bottom:12px}
+.product-header h3{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;margin-bottom:6px}
+.product-header p{font-size:.85rem;opacity:.85;line-height:1.5}
+.product-body{padding:24px 28px}
+.product-includes{list-style:none;margin-bottom:24px}
+.product-includes li{
+  padding:7px 0;border-bottom:1px solid #f0f0f0;
+  font-size:.875rem;display:flex;align-items:center;gap:10px;color:var(--dark);
+}
+.product-includes li:last-child{border-bottom:none}
+.check-green{color:var(--green)}
+.product-price{
+  display:flex;align-items:baseline;gap:8px;margin-bottom:20px;
+}
+.price-amount{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--blue)}
+.price-currency{font-size:.9rem;color:var(--muted)}
+.price-usd{font-size:.85rem;color:var(--muted);font-style:italic}
+.btn-product{
+  display:block;width:100%;padding:14px;border-radius:var(--radius);
+  font-weight:700;font-size:.95rem;text-align:center;text-decoration:none;
+  background:var(--blue);color:white;transition:transform .2s,box-shadow .2s;
+  margin-bottom:10px;
+}
+.btn-product:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(1,77,109,.3)}
+.btn-product.orange{background:var(--orange)}
+.btn-product.outline{
+  background:white;color:var(--blue);
+  border:2px solid var(--blue);
+}
+.btn-product.outline:hover{background:var(--soft)}
+
+/* ── EN COURS ── */
+#en-cours{background:var(--soft)}
+.coming-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.coming-card{
+  background:white;border-radius:var(--radius);padding:32px 28px;
+  border:2px dashed #d1e8f0;position:relative;overflow:hidden;
+}
+.coming-card::before{
+  content:'';position:absolute;top:0;right:0;
+  width:80px;height:80px;
+  background:linear-gradient(225deg,#f0f9ff 0%,transparent 60%);
+}
+.coming-ribbon{
+  display:inline-flex;align-items:center;gap:6px;
+  background:#FFF3CD;border:1px solid #F0C030;
+  color:#856404;padding:4px 12px;border-radius:99px;
+  font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  margin-bottom:16px;
+}
+.coming-icon{font-size:2.2rem;margin-bottom:12px}
+.coming-card h3{font-size:1.1rem;font-weight:700;color:var(--blue);margin-bottom:8px}
+.coming-card p{font-size:.875rem;color:var(--muted);line-height:1.7;margin-bottom:16px}
+.progress-bar{height:6px;background:#e5e7eb;border-radius:99px;overflow:hidden;margin-bottom:8px}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--blue),var(--orange));border-radius:99px;transition:width .8s ease}
+.progress-label{font-size:.75rem;color:var(--muted);display:flex;justify-content:space-between}
+
+/* ── LÉGUMES APP HIGHLIGHT ── */
+.app-highlight{
+  background:linear-gradient(135deg,#1A7F4B 0%,#0d5c34 100%);
+  border-radius:20px;padding:48px;
+  display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;
+  margin-top:40px;position:relative;overflow:hidden;
+}
+.app-highlight::before{
+  content:'🌿';font-size:200px;position:absolute;right:-20px;bottom:-40px;
+  opacity:.08;line-height:1;
+}
+.app-highlight h3{
   font-family:'Playfair Display',serif;
-  font-size:clamp(1.8rem,3vw,2.6rem);
-  font-weight:700; color:var(--blue);
-  line-height:1.2; margin-bottom:16px;
+  font-size:1.8rem;font-weight:700;color:white;margin-bottom:12px;
 }
-.section-lead { font-size:1.05rem; color:var(--muted); max-width:600px; line-height:1.7; }
-
-/* ── ERREURS ── */
-.errors-grid {
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
-  gap:24px; margin-top:48px;
+.app-highlight p{font-size:.95rem;color:rgba(255,255,255,.85);line-height:1.7;margin-bottom:24px}
+.app-features{display:flex;flex-direction:column;gap:12px}
+.app-feature{
+  display:flex;align-items:center;gap:12px;
+  background:rgba(255,255,255,.1);border-radius:8px;padding:12px 16px;
+  color:white;font-size:.875rem;
 }
-.error-card {
-  border:1px solid #e5e7eb;
-  border-radius:var(--radius);
-  padding:28px;
-  position:relative;
-  transition: box-shadow .2s;
+.app-feature span:first-child{font-size:1.2rem}
+.notify-form{display:flex;gap:8px;flex-wrap:wrap}
+.notify-input{
+  flex:1;min-width:180px;padding:12px 16px;border-radius:var(--radius);
+  border:none;font-family:'DM Sans',sans-serif;font-size:.9rem;
+  outline:none;
 }
-.error-card:hover { box-shadow:var(--shadow); }
-.error-num {
-  font-family:'Playfair Display',serif;
-  font-size:3rem; font-weight:900;
-  color:#f0e8d0; position:absolute;
-  top:16px; right:20px; line-height:1;
+.notify-btn{
+  background:var(--orange);color:white;border:none;
+  padding:12px 20px;border-radius:var(--radius);
+  font-weight:700;font-size:.9rem;cursor:pointer;
+  font-family:'DM Sans',sans-serif;white-space:nowrap;
+  transition:transform .2s;
 }
-.error-cost {
-  display:inline-block;
-  background:#FEF2F2; color:var(--danger);
-  font-weight:700; font-size:.8rem;
-  padding:3px 10px; border-radius:99px;
-  margin-bottom:12px;
-}
-.error-title { font-weight:700; font-size:1rem; color:var(--blue); margin-bottom:8px; }
-.error-desc { font-size:.875rem; color:var(--muted); line-height:1.6; }
-
-/* ── CONTENU DU BUNDLE ── */
-.bundle-grid {
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
-  gap:20px; margin-top:48px;
-}
-.bundle-item {
-  background:var(--soft);
-  border-radius:var(--radius);
-  padding:28px 24px;
-  border-left:4px solid var(--blue);
-  transition: transform .2s;
-}
-.bundle-item:hover { transform:translateY(-4px); }
-.bundle-item.highlight { border-left-color:var(--orange); background:#FFF9E6; }
-.bundle-icon { font-size:2rem; margin-bottom:12px; }
-.bundle-item h3 { font-size:1rem; font-weight:700; color:var(--blue); margin-bottom:8px; }
-.bundle-item p { font-size:.875rem; color:var(--muted); line-height:1.6; }
-.bundle-badge {
-  display:inline-block;
-  background:var(--orange); color:white;
-  font-size:.65rem; font-weight:700;
-  letter-spacing:.08em; text-transform:uppercase;
-  padding:2px 8px; border-radius:99px;
-  margin-bottom:8px;
-}
-
-/* ── MODULES ── */
-.modules-list {
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
-  gap:16px; margin-top:40px;
-}
-.module-row {
-  display:flex; align-items:flex-start; gap:16px;
-  padding:20px;
-  border:1px solid #e5e7eb;
-  border-radius:var(--radius);
-  transition: border-color .2s;
-}
-.module-row:hover { border-color:var(--blue); }
-.module-num {
-  background:var(--blue); color:white;
-  font-family:'Playfair Display',serif;
-  font-size:1.1rem; font-weight:700;
-  min-width:40px; height:40px;
-  border-radius:8px;
-  display:flex; align-items:center; justify-content:center;
-}
-.module-row h4 { font-size:.95rem; font-weight:700; color:var(--dark); margin-bottom:4px; }
-.module-row p { font-size:.8rem; color:var(--muted); line-height:1.5; }
-
-/* ── POUR QUI ── */
-.audience-grid {
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-  gap:20px; margin-top:40px;
-}
-.audience-card {
-  text-align:center; padding:32px 20px;
-  border-radius:var(--radius);
-  background:var(--soft);
-  transition: transform .2s;
-}
-.audience-card:hover { transform:translateY(-4px); }
-.audience-icon { font-size:2.4rem; margin-bottom:12px; }
-.audience-card h3 { font-size:.95rem; font-weight:700; color:var(--blue); margin-bottom:8px; }
-.audience-card p { font-size:.8rem; color:var(--muted); line-height:1.6; }
+.notify-btn:hover{transform:translateY(-1px)}
 
 /* ── AUTEUR ── */
-.author-section {
-  background: linear-gradient(135deg, #f0f7fb, #e8f4f8);
-  border-radius:20px; padding:48px;
-  display:grid;
-  grid-template-columns: auto 1fr;
-  gap:40px; align-items:center;
-  margin-top:40px;
+.author-section{
+  background:linear-gradient(135deg,#f0f7fb,#e8f4f8);
+  border-radius:20px;padding:48px;
+  display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center;
 }
-.author-avatar {
-  width:100px; height:100px;
-  background: linear-gradient(135deg, var(--blue), #025f87);
-  border-radius:50%;
-  display:flex; align-items:center; justify-content:center;
-  font-family:'Playfair Display',serif;
-  font-size:2.5rem; font-weight:900; color:white;
-  flex-shrink:0;
+.author-avatar-lg{
+  width:110px;height:110px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(135deg,var(--blue),#025f87);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:900;color:white;
 }
-.author-name {
-  font-family:'Playfair Display',serif;
-  font-size:1.6rem; font-weight:700; color:var(--blue);
-  margin-bottom:4px;
+.author-name{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--blue);margin-bottom:4px}
+.author-title{color:var(--orange);font-weight:600;margin-bottom:16px}
+.author-creds{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px}
+.cred{background:white;border:1px solid #d1e8f0;border-radius:8px;padding:6px 14px;font-size:.8rem;font-weight:600;color:var(--blue)}
+.author-bio{font-size:.9rem;color:var(--muted);line-height:1.7}
+.author-contacts{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.contact-link{
+  display:flex;align-items:center;gap:6px;
+  background:var(--blue);color:white;padding:8px 16px;border-radius:99px;
+  font-size:.82rem;font-weight:600;text-decoration:none;
+  transition:transform .2s;
 }
-.author-title { color:var(--orange); font-weight:600; font-size:.9rem; margin-bottom:16px; }
-.author-creds { display:flex; gap:16px; flex-wrap:wrap; margin-bottom:16px; }
-.cred {
-  background:white; border:1px solid #d1e8f0;
-  border-radius:8px; padding:6px 14px;
-  font-size:.8rem; font-weight:600; color:var(--blue);
-}
-.author-bio { font-size:.9rem; color:var(--muted); line-height:1.7; }
+.contact-link:hover{transform:translateY(-2px)}
+.contact-link.green{background:var(--green)}
+.contact-link.orange{background:var(--orange)}
 
 /* ── CTA FINAL ── */
-.cta-final {
-  background: linear-gradient(135deg, var(--blue) 0%, #023d57 100%);
-  color:white; text-align:center;
-  padding: 80px 48px;
-  position:relative; overflow:hidden;
+.cta-final{
+  background:linear-gradient(135deg,var(--blue),#023d57);
+  color:white;text-align:center;padding:80px 48px;
 }
-.cta-final::before {
-  content:'';
-  position:absolute; inset:0;
-  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+.cta-final h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:900;margin-bottom:16px}
+.cta-final p{opacity:.8;max-width:560px;margin:0 auto 36px;line-height:1.7}
+.cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-cta{
+  padding:16px 36px;border-radius:var(--radius);font-weight:700;
+  font-size:1rem;text-decoration:none;transition:transform .2s,box-shadow .2s;
 }
-.cta-final > * { position:relative; z-index:1; }
-.cta-final h2 {
-  font-family:'Playfair Display',serif;
-  font-size:clamp(1.8rem,3vw,2.8rem);
-  font-weight:900; margin-bottom:16px;
-}
-.cta-final p { opacity:.8; max-width:560px; margin:0 auto 36px; line-height:1.7; }
-.cta-buttons { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
-.btn-cta-primary {
-  background:var(--orange); color:white;
-  padding:16px 36px; border-radius:var(--radius);
-  font-size:1rem; font-weight:700;
-  text-decoration:none;
-  transition: transform .2s, box-shadow .2s;
-}
-.btn-cta-primary:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(214,167,10,.4); }
-.btn-cta-secondary {
-  background:rgba(255,255,255,.1);
-  border:1px solid rgba(255,255,255,.3);
-  color:white;
-  padding:16px 36px; border-radius:var(--radius);
-  font-size:1rem; font-weight:600;
-  text-decoration:none;
-  transition: background .2s;
-}
-.btn-cta-secondary:hover { background:rgba(255,255,255,.18); }
-
-/* ── FAQ ── */
-.faq { max-width:700px; margin:40px auto 0; }
-.faq-item {
-  border-bottom:1px solid #e5e7eb;
-  padding:20px 0;
-}
-.faq-q { font-weight:700; color:var(--blue); margin-bottom:8px; font-size:.95rem; }
-.faq-a { font-size:.875rem; color:var(--muted); line-height:1.7; }
+.btn-cta.primary{background:var(--orange);color:white}
+.btn-cta.primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(214,167,10,.4)}
+.btn-cta.secondary{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.3);color:white}
+.btn-cta.secondary:hover{background:rgba(255,255,255,.18)}
 
 /* ── FOOTER ── */
-footer {
-  background:var(--dark); color:#9ca3af;
-  text-align:center; padding:32px;
-  font-size:.8rem;
-}
-footer a { color:var(--orange); text-decoration:none; }
+footer{background:var(--dark);color:#9ca3af;text-align:center;padding:32px;font-size:.8rem}
+footer a{color:var(--orange);text-decoration:none}
 
-/* ── DIVIDER ── */
-.divider {
-  border:none;
-  height:1px;
-  background: linear-gradient(90deg, transparent, #d1e8f0, transparent);
-  margin:0;
+/* ── FLOATING BUTTONS ── */
+.fab-wa{
+  position:fixed;bottom:28px;left:28px;
+  background:#25D366;color:white;
+  padding:12px 20px;border-radius:99px;
+  display:flex;align-items:center;gap:8px;
+  font-weight:700;font-size:.85rem;text-decoration:none;
+  box-shadow:0 4px 16px rgba(37,211,102,.4);z-index:998;
+  transition:transform .2s;font-family:'DM Sans',sans-serif;
 }
+.fab-wa:hover{transform:translateY(-3px)}
+.fab-top{
+  position:fixed;bottom:28px;right:28px;
+  background:var(--blue);color:white;
+  width:48px;height:48px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;text-decoration:none;
+  box-shadow:0 4px 16px rgba(1,77,109,.35);z-index:998;
+  transition:transform .2s;
+}
+.fab-top:hover{transform:translateY(-3px)}
 
 /* ── RESPONSIVE ── */
 @media(max-width:768px){
-  .hero-content { grid-template-columns:1fr; padding:48px 24px; }
-  .price-card { margin-top:0; }
-  .section { padding:60px 24px; }
-  .author-section { grid-template-columns:1fr; text-align:center; }
-  .author-creds { justify-content:center; }
-  .hero-stats { justify-content:center; }
+  nav{padding:0 20px}
+  .nav-links{display:none}
+  .hero-inner{grid-template-columns:1fr;padding:48px 24px}
+  section{padding:60px 24px}
+  .author-section{grid-template-columns:1fr;text-align:center}
+  .author-creds{justify-content:center}
+  .app-highlight{grid-template-columns:1fr}
+  .cta-btns{flex-direction:column;align-items:center}
 }
 
-/* ── ANIMATIONS ── */
-@keyframes fadeUp {
-  from { opacity:0; transform:translateY(24px); }
-  to   { opacity:1; transform:translateY(0); }
-}
-.hero-content > * {
-  animation: fadeUp .6s ease both;
-}
-.hero-content > *:nth-child(2) { animation-delay:.15s; }
+/* ── LANG ── */
+[data-fr],[data-en]{transition:opacity .2s}
 </style>
-
-<!-- Google Analytics — décommentez et ajoutez votre ID après création du compte
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
-</script>
--->
-
-<link rel="canonical" href="https://rabiouaminou.github.io/kobotoolbox-meal">
 </head>
 <body>
 
+<!-- ══ NAV ══ -->
+<nav>
+  <a href="#" class="nav-brand">AR<span>.</span></a>
+  <div class="nav-links">
+    <a href="#services"  data-fr="Services"  data-en="Services">Services</a>
+    <a href="#produits"  data-fr="Produits"  data-en="Products">Produits</a>
+    <a href="#en-cours"  data-fr="En cours"  data-en="Coming Soon">En cours</a>
+    <a href="#auteur"    data-fr="À propos"  data-en="About">À propos</a>
+    <a href="https://wa.me/22796325050" class="nav-cta" data-fr="💬 Contact" data-en="💬 Contact">💬 Contact</a>
+  </div>
+  <div class="lang-toggle">
+    <button class="lang-btn active" onclick="setLang('fr')">FR</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+  </div>
+</nav>
+
 <!-- ══ HERO ══ -->
-
-<!-- BANNIÈRE TEMPORAIRE — À SUPPRIMER APRÈS PUBLICATION GUMROAD -->
-<div style="background:#014D6D;color:white;text-align:center;padding:12px 24px;font-family:'DM Sans',sans-serif;font-size:.9rem;position:sticky;top:0;z-index:999;">
-  📢 Disponible dès maintenant &nbsp;·&nbsp;
-  <a href="https://wa.me/22796325050" style="color:#D6A70A;font-weight:700;text-decoration:none;">
-    Commandez via WhatsApp : +227 96 32 50 50
-  </a>
-  &nbsp;·&nbsp; Wave &nbsp;|&nbsp; MyNita &nbsp;|&nbsp; Gumroad
-</div>
-
 <section class="hero">
   <div class="hero-accent"></div>
-  <div class="hero-content">
+  <div class="hero-inner">
     <div>
-      <div class="hero-badge">🎯 Bundle Professionnel · Édition 2026</div>
-      <h1>L'art de la <span>collecte de données</span> avec KoboToolbox</h1>
-      <p class="hero-sub">
-        Le guide terrain condensé qui transforme votre façon de concevoir les formulaires XLSForm.
-        Arrêtez de perdre des semaines à nettoyer des données corrompues.
+      <div class="hero-badge" data-fr="🌍 Niamey, Niger · ICT4D & MEAL" data-en="🌍 Niamey, Niger · ICT4D & MEAL">
+        🌍 Niamey, Niger · ICT4D & MEAL
+      </div>
+      <h1 data-fr="Solutions digitales <span>intelligentes</span> pour l'Afrique de l'Ouest"
+          data-en="Smart digital <span>solutions</span> for West Africa">
+        Solutions digitales <span>intelligentes</span><br>pour l'Afrique de l'Ouest
+      </h1>
+      <p class="hero-sub"
+         data-fr="Collecte de données, dashboards MEAL, formations et applications mobiles. Des outils conçus pour le terrain, adaptés au contexte Sahel."
+         data-en="Data collection, MEAL dashboards, training and mobile apps. Tools designed for the field, adapted to the Sahel context.">
+        Collecte de données, dashboards MEAL, formations et applications mobiles. Des outils conçus pour le terrain, adaptés au contexte Sahel.
       </p>
-      <div class="hero-stats">
-        <div class="stat">
-          <span class="stat-num">7</span>
-          <span class="stat-label">Modules</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">5</span>
-          <span class="stat-label">Templates</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">53</span>
-          <span class="stat-label">Pages</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">149k€</span>
-          <span class="stat-label">Erreurs évitées</span>
-        </div>
+      <div class="hero-tags">
+        <span class="tag">KoboToolbox</span>
+        <span class="tag">Power BI</span>
+        <span class="tag">XLSForm</span>
+        <span class="tag">MEAL</span>
+        <span class="tag">ICT4D</span>
+        <span class="tag">Data Analysis</span>
+      </div>
+      <div class="hero-btns">
+        <a href="#produits" class="btn-hero-primary" data-fr="🛒 Voir les produits" data-en="🛒 See Products">🛒 Voir les produits</a>
+        <a href="#services" class="btn-hero-secondary" data-fr="📋 Mes services" data-en="📋 My Services">📋 Mes services</a>
       </div>
     </div>
-
-    <div class="price-card">
-      <div class="price-card-tag">🔥 Offre de lancement</div>
-      <div class="price-old">Valeur estimée : 45 000 FCFA</div>
-      <div class="price-main">20 000 <span style="font-size:1.2rem">FCFA</span></div>
-      <div class="price-sub">≈ 30 USD · Accès immédiat</div>
-      <ul class="price-includes">
-        <li><span class="check">✅</span> Manuel PDF complet (53 pages)</li>
-        <li><span class="check">✅</span> Template T1 — Ménage générique</li>
-        <li><span class="check">✅</span> Template T2 — Cheptel &amp; Élevage</li>
-        <li><span class="check">✅</span> Template T3 — WASH</li>
-        <li><span class="check">✅</span> Template T4 — Vulnérabilité</li>
-        <li><span class="check">✅</span> Template T5 — Éducation</li>
-        <li><span class="check">✅</span> Guide de personnalisation (Word)</li>
-      </ul>
-      <a href="#gumroad-link" class="btn-primary">🛒 Acheter sur Gumroad (USD/Payoneer)</a>
-      <a href="https://wa.me/22796325050" class="btn-secondary">📱 Payer via Wave ou MyNita (FCFA)</a>
-      <div style="margin-top:14px;padding:12px 16px;background:#f0f9f0;border-radius:8px;font-size:.8rem;color:#1a7f4b;text-align:left;">
-        <strong>💳 3 modes de paiement disponibles :</strong><br>
-        🔵 <strong>Gumroad</strong> — Carte / Payoneer (USD international)<br>
-        🟡 <strong>Wave</strong> — Transfert mobile immédiat<br>
-        🟢 <strong>MyNita</strong> — Paiement local Niger<br>
-        <span style="color:#6b7280">📞 WhatsApp : <a href="https://wa.me/22796325050" style="color:#014D6D;font-weight:600">+227 96 32 50 50</a></span>
+    <div class="profile-card">
+      <div class="profile-avatar">AR</div>
+      <div class="profile-name">Aminou RABIOU</div>
+      <div class="profile-title">Expert SI & ICT4D</div>
+      <div class="profile-stats">
+        <div class="stat-item"><span class="stat-num">8+</span><span class="stat-lbl" data-fr="Ans terrain" data-en="Years field">Ans terrain</span></div>
+        <div class="stat-item"><span class="stat-num">100+</span><span class="stat-lbl" data-fr="Déploiements" data-en="Deployments">Déploiements</span></div>
+        <div class="stat-item"><span class="stat-num">50+</span><span class="stat-lbl" data-fr="Audits" data-en="Audits">Audits</span></div>
+        <div class="stat-item"><span class="stat-num">2</span><span class="stat-lbl" data-fr="Produits" data-en="Products">Produits</span></div>
       </div>
-      <p class="trust-note">🔒 Paiement sécurisé · Téléchargement immédiat après confirmation</p>
+      <div class="profile-location">📍 Niamey, Niger</div>
     </div>
   </div>
 </section>
 
 <hr class="divider">
 
-<!-- ══ ERREURS ══ -->
-<div class="section">
-  <p class="section-label">Pourquoi ce guide existe</p>
-  <h2 class="section-title">5 erreurs qui ont coûté 149 000 € à des organisations réelles</h2>
-  <p class="section-lead">Ces scénarios sont issus d'audits post-mortem de vrais projets. Chaque erreur aurait pu être évitée en 3 heures de conception rigoureuse.</p>
-
-  <div class="errors-grid">
-    <div class="error-card">
-      <span class="error-num">01</span>
-      <span class="error-cost">49 200 € perdus</span>
-      <div class="error-title">Formulaire papier numérisé tel quel</div>
-      <div class="error-desc">Zimbabwe, 2024. 34% des fiches invalides. Retard de 3 semaines. Distribution PAM annulée pour 3 000 ménages.</div>
-    </div>
-    <div class="error-card">
-      <span class="error-num">02</span>
-      <span class="error-cost">11 200 € perdus</span>
-      <div class="error-title">Calculs UBT sans coalesce()</div>
-      <div class="error-desc">Somalie, 2023. 71% des fiches avec UBT vide ou invalide. 180h de nettoyage manuel en urgence.</div>
-    </div>
-    <div class="error-card">
-      <span class="error-num">03</span>
-      <span class="error-cost">8 200 € perdus</span>
-      <div class="error-title">Pas de contraintes de saisie</div>
-      <div class="error-desc">Mali, 2023. Enquête SMART nutrition. Taux MAG faussé. Appel de fonds CERF retardé de 4 semaines.</div>
-    </div>
-    <div class="error-card">
-      <span class="error-num">04</span>
-      <span class="error-cost">14 300 € perdus</span>
-      <div class="error-title">GPS sans planification terrain</div>
-      <div class="error-desc">RDC, 2024. 65% des coordonnées aberrantes. Rallongement de 15 jours. Projet de cartographie inutilisable.</div>
-    </div>
-    <div class="error-card">
-      <span class="error-num">05</span>
-      <span class="error-cost">66 500 € perdus</span>
-      <div class="error-title">Pas d'audit trail — fraude suspectée</div>
-      <div class="error-desc">Nigeria, 2023. Fonds suspendus pendant 6 semaines. Audit externe déclenché. Réputation endommagée.</div>
+<!-- ══ SERVICES ══ -->
+<section id="services">
+  <div class="section-inner">
+    <p class="section-label" data-fr="Ce que je fais" data-en="What I do">Ce que je fais</p>
+    <h2 class="section-title" data-fr="Services & Expertise" data-en="Services & Expertise">Services & Expertise</h2>
+    <p class="section-lead"
+       data-fr="Des solutions digitales sur mesure pour les ONG, agences internationales, gouvernements et startups africaines."
+       data-en="Custom digital solutions for NGOs, international agencies, governments and African startups.">
+      Des solutions digitales sur mesure pour les ONG, agences internationales, gouvernements et startups africaines.
+    </p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">📊</div>
+        <h3 data-fr="Collecte de données mobiles" data-en="Mobile Data Collection">Collecte de données mobiles</h3>
+        <p data-fr="Conception de formulaires XLSForm complexes, déploiement KoboToolbox, contrôle qualité et gouvernance des données terrain." data-en="Complex XLSForm design, KoboToolbox deployment, quality control and field data governance.">Conception de formulaires XLSForm complexes, déploiement KoboToolbox, contrôle qualité et gouvernance des données terrain.</p>
+      </div>
+      <div class="service-card orange">
+        <div class="service-icon">📈</div>
+        <h3 data-fr="Dashboards & Visualisation" data-en="Dashboards & Visualization">Dashboards & Visualisation</h3>
+        <p data-fr="Tableaux de bord MEAL interactifs sous Power BI connectés à vos exports Kobo. Indicateurs en temps réel pour vos bailleurs." data-en="Interactive MEAL dashboards in Power BI connected to your Kobo exports. Real-time indicators for your donors.">Tableaux de bord MEAL interactifs sous Power BI connectés à vos exports Kobo. Indicateurs en temps réel pour vos bailleurs.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🎓</div>
+        <h3 data-fr="Formations & Accompagnement" data-en="Training & Coaching">Formations & Accompagnement</h3>
+        <p data-fr="Formations KoboToolbox, Power BI et analyse de données pour équipes MEAL. Sessions individuelles ou en groupe, présentiel ou distanciel." data-en="KoboToolbox, Power BI and data analysis training for MEAL teams. Individual or group sessions, in-person or remote.">Formations KoboToolbox, Power BI et analyse de données pour équipes MEAL.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🗄️</div>
+        <h3 data-fr="Systèmes d'Information" data-en="Information Systems">Systèmes d'Information</h3>
+        <p data-fr="Conception et déploiement de SIG, bases de données sectorielles, intégration API et automatisation des flux de données." data-en="GIS design and deployment, sectoral databases, API integration and data flow automation.">Conception et déploiement de SIG, bases de données sectorielles, intégration API et automatisation des flux de données.</p>
+      </div>
+      <div class="service-card orange">
+        <div class="service-icon">📱</div>
+        <h3 data-fr="Développement d'applications" data-en="App Development">Développement d'applications</h3>
+        <p data-fr="Applications mobiles et web adaptées au contexte africain. Solutions hors-ligne, légères et optimisées pour les zones à faible connectivité." data-en="Mobile and web apps adapted to the African context. Offline, lightweight solutions optimized for low-connectivity areas.">Applications mobiles et web adaptées au contexte africain. Solutions hors-ligne, légères et optimisées pour les zones à faible connectivité.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔍</div>
+        <h3 data-fr="Audit & Évaluation MEAL" data-en="MEAL Audit & Evaluation">Audit & Évaluation MEAL</h3>
+        <p data-fr="Audit post-mortem de collectes de données, évaluation de systèmes MEAL existants, recommandations et plan de remédiation." data-en="Post-mortem audit of data collections, evaluation of existing MEAL systems, recommendations and remediation plan.">Audit post-mortem de collectes de données, évaluation de systèmes MEAL existants, recommandations et plan de remédiation.</p>
+      </div>
     </div>
   </div>
-</div>
+</section>
 
 <hr class="divider">
 
-<!-- ══ BUNDLE ══ -->
-<div style="background:var(--soft); padding:1px 0;">
-<div class="section">
-  <p class="section-label">Ce que vous recevez</p>
-  <h2 class="section-title">Un bundle complet. Prêt à déployer.</h2>
-  <p class="section-lead">Tout ce qu'il faut pour maîtriser KoboToolbox de la conception au déploiement terrain.</p>
+<!-- ══ PRODUITS ══ -->
+<section id="produits">
+  <div class="section-inner">
+    <p class="section-label" data-fr="Produits disponibles" data-en="Available Products">Produits disponibles</p>
+    <h2 class="section-title" data-fr="Bundles prêts à l'emploi" data-en="Ready-to-use Bundles">Bundles prêts à l'emploi</h2>
+    <p class="section-lead"
+       data-fr="Deux produits numériques professionnels conçus pour les équipes MEAL en Afrique de l'Ouest. Téléchargement immédiat après paiement."
+       data-en="Two professional digital products designed for MEAL teams in West Africa. Immediate download after payment.">
+      Deux produits numériques professionnels conçus pour les équipes MEAL en Afrique de l'Ouest. Téléchargement immédiat après paiement.
+    </p>
+    <div class="products-grid">
 
-  <div class="bundle-grid">
-    <div class="bundle-item">
-      <div class="bundle-icon">📘</div>
-      <h3>Manuel PDF — 53 pages</h3>
-      <p>7 modules progressifs. Du cadre logique au XLSForm avancé. Cas concrets Afrique de l'Ouest & Sahel.</p>
-    </div>
-    <div class="bundle-item highlight">
-      <div class="bundle-badge">⭐ Plus populaire</div>
-      <div class="bundle-icon">📊</div>
-      <h3>5 Templates XLSForm</h3>
-      <p>Ménage, Cheptel, WASH, Vulnérabilité, Éducation. Prêts à téléverser sur Kobo. Déployables en 30 min.</p>
-    </div>
-    <div class="bundle-item">
-      <div class="bundle-icon">🗺️</div>
-      <h3>Guide de personnalisation</h3>
-      <p>Checklist pré-déploiement. Adaptations par contexte (aride, urbain, conflit). Règles de versionnage.</p>
-    </div>
-    <div class="bundle-item">
-      <div class="bundle-icon">🔧</div>
-      <h3>Formules prêtes à l'emploi</h3>
-      <p>Calcul UBT, score SDA, taux présence, alertes automatiques. Copiez-collez directement dans Excel.</p>
+      <!-- Bundle 1 : Ebook -->
+      <div class="product-card">
+        <div class="product-header">
+          <div class="product-badge new" data-fr="✅ Disponible" data-en="✅ Available">✅ Disponible</div>
+          <div class="product-icon">📘</div>
+          <h3 data-fr="Bundle KoboToolbox MEAL" data-en="KoboToolbox MEAL Bundle">Bundle KoboToolbox MEAL</h3>
+          <p data-fr="Manuel PDF + 5 templates XLSForm + Guide de personnalisation" data-en="PDF Manual + 5 XLSForm templates + Customization guide">Manuel PDF + 5 templates XLSForm + Guide de personnalisation</p>
+        </div>
+        <div class="product-body">
+          <ul class="product-includes">
+            <li><span class="check-green">✅</span><span data-fr="Manuel PDF 53 pages — 7 modules" data-en="53-page PDF manual — 7 modules">Manuel PDF 53 pages — 7 modules</span></li>
+            <li><span class="check-green">✅</span><span data-fr="5 templates XLSForm (Ménage, Cheptel, WASH, Vulnérabilité, Éducation)" data-en="5 XLSForm templates (Household, Livestock, WASH, Vulnerability, Education)">5 templates XLSForm sectoriels</span></li>
+            <li><span class="check-green">✅</span><span data-fr="Guide de personnalisation Word" data-en="Word customization guide">Guide de personnalisation Word</span></li>
+            <li><span class="check-green">✅</span><span data-fr="Calcul UBT automatique, alertes HDDS/CSI" data-en="Automatic UBT calculation, HDDS/CSI alerts">Calcul UBT automatique, alertes HDDS/CSI</span></li>
+            <li><span class="check-green">✅</span><span data-fr="Contexte Sahel & Afrique de l'Ouest" data-en="Sahel & West Africa context">Contexte Sahel & Afrique de l'Ouest</span></li>
+          </ul>
+          <div class="product-price">
+            <span class="price-amount">20 000</span>
+            <span class="price-currency">FCFA</span>
+            <span class="price-usd">≈ 30 USD</span>
+          </div>
+          <a href="https://rabiouaminou.github.io/kobotoolbox-meal" class="btn-product"
+             data-fr="🛒 Acheter ce bundle" data-en="🛒 Buy this bundle">🛒 Acheter ce bundle</a>
+          <a href="https://wa.me/22796325050" class="btn-product outline"
+             data-fr="📱 Payer par Wave / MyNita" data-en="📱 Pay via Wave / MyNita">📱 Payer par Wave / MyNita</a>
+        </div>
+      </div>
+
+      <!-- Bundle 2 : Dashboard -->
+      <div class="product-card">
+        <div class="product-header orange">
+          <div class="product-badge new" data-fr="✅ Disponible" data-en="✅ Available">✅ Disponible</div>
+          <div class="product-icon">📊</div>
+          <h3 data-fr="Dashboard Power BI MEAL FSL" data-en="Power BI MEAL FSL Dashboard">Dashboard Power BI MEAL FSL</h3>
+          <p data-fr="Niger Resilience Monitor — 6 pages · 44 mesures DAX · GPS réel" data-en="Niger Resilience Monitor — 6 pages · 44 DAX measures · Real GPS">Niger Resilience Monitor — 6 pages · 44 mesures DAX · GPS réel</p>
+        </div>
+        <div class="product-body">
+          <ul class="product-includes">
+            <li><span class="check-green">✅</span><span data-fr="Fichier .pbix Power BI complet (6 pages)" data-en="Complete .pbix Power BI file (6 pages)">Fichier .pbix Power BI complet (6 pages)</span></li>
+            <li><span class="check-green">✅</span><span data-fr="44 mesures DAX (sécurité alim., élevage, qualité)" data-en="44 DAX measures (food security, livestock, quality)">44 mesures DAX prêtes à l'emploi</span></li>
+            <li><span class="check-green">✅</span><span data-fr="Données démo 500 ménages Niger (GPS réels)" data-en="500 household demo data Niger (real GPS)">Données démo 500 ménages Niger</span></li>
+            <li><span class="check-green">✅</span><span data-fr="Thème JSON brand + README installation" data-en="Brand JSON theme + Installation README">Thème JSON + README installation</span></li>
+            <li><span class="check-green">✅</span><span data-fr="Compatible exports KoboToolbox directs" data-en="Compatible with direct KoboToolbox exports">Compatible exports KoboToolbox directs</span></li>
+          </ul>
+          <div class="product-price">
+            <span class="price-amount" style="color:var(--orange)">50 000</span>
+            <span class="price-currency">FCFA</span>
+            <span class="price-usd">≈ 75 USD</span>
+          </div>
+          <a href="https://wa.me/22796325050" class="btn-product orange"
+             data-fr="🛒 Commander ce dashboard" data-en="🛒 Order this dashboard">🛒 Commander ce dashboard</a>
+          <a href="https://wa.me/22796325050" class="btn-product outline"
+             data-fr="📱 Payer par Wave / MyNita" data-en="📱 Pay via Wave / MyNita">📱 Payer par Wave / MyNita</a>
+        </div>
+      </div>
+
+      <!-- Bundle combiné -->
+      <div class="product-card" style="border:2px solid var(--orange)">
+        <div class="product-header" style="background:linear-gradient(135deg,#012d42,var(--blue))">
+          <div class="product-badge" style="background:var(--orange);border-color:var(--orange)"
+               data-fr="⭐ Meilleure offre" data-en="⭐ Best deal">⭐ Meilleure offre</div>
+          <div class="product-icon">🎁</div>
+          <h3 data-fr="Bundle Complet" data-en="Complete Bundle">Bundle Complet</h3>
+          <p data-fr="Ebook KoboToolbox + Dashboard Power BI FSL" data-en="KoboToolbox Ebook + Power BI FSL Dashboard">Ebook KoboToolbox + Dashboard Power BI FSL</p>
+        </div>
+        <div class="product-body">
+          <ul class="product-includes">
+            <li><span class="check-green">✅</span><span data-fr="Tout le Bundle KoboToolbox MEAL" data-en="Full KoboToolbox MEAL Bundle">Tout le Bundle KoboToolbox MEAL</span></li>
+            <li><span class="check-green">✅</span><span data-fr="Tout le Dashboard Power BI MEAL FSL" data-en="Full Power BI MEAL FSL Dashboard">Tout le Dashboard Power BI MEAL FSL</span></li>
+            <li><span class="check-green">✅</span><span data-fr="Support WhatsApp 30 jours inclus" data-en="30-day WhatsApp support included">Support WhatsApp 30 jours inclus</span></li>
+            <li><span class="check-green">✅</span><span style="color:var(--orange);font-weight:600"
+                  data-fr="Économisez 10 000 FCFA" data-en="Save 10,000 FCFA">Économisez 10 000 FCFA</span></li>
+          </ul>
+          <div class="product-price">
+            <span class="price-amount" style="color:var(--blue)">60 000</span>
+            <span class="price-currency">FCFA</span>
+            <span class="price-usd">≈ 90 USD</span>
+          </div>
+          <a href="https://wa.me/22796325050" class="btn-product"
+             style="background:linear-gradient(135deg,var(--blue),var(--orange))"
+             data-fr="🎁 Acheter le bundle complet" data-en="🎁 Buy the complete bundle">🎁 Acheter le bundle complet</a>
+          <a href="https://wa.me/22796325050" class="btn-product outline"
+             data-fr="📱 Payer par Wave / MyNita" data-en="📱 Pay via Wave / MyNita">📱 Payer par Wave / MyNita</a>
+        </div>
+      </div>
+
     </div>
   </div>
-</div>
-</div>
+</section>
 
 <hr class="divider">
 
-<!-- ══ MODULES ══ -->
-<div class="section">
-  <p class="section-label">Le programme</p>
-  <h2 class="section-title">7 modules pour maîtriser KoboToolbox</h2>
+<!-- ══ EN COURS ══ -->
+<section id="en-cours">
+  <div class="section-inner">
+    <p class="section-label" data-fr="Bientôt disponible" data-en="Coming Soon">Bientôt disponible</p>
+    <h2 class="section-title" data-fr="Projets en cours de développement" data-en="Projects in Development">Projets en cours de développement</h2>
+    <p class="section-lead"
+       data-fr="Des produits et services en cours de création. Inscrivez-vous pour être notifié en priorité dès le lancement."
+       data-en="Products and services currently being created. Sign up to be notified first at launch.">
+      Des produits et services en cours de création. Inscrivez-vous pour être notifié en priorité dès le lancement.
+    </p>
 
-  <div class="modules-list">
-    <div class="module-row">
-      <div class="module-num">0</div>
-      <div>
-        <h4>Les 5 erreurs coûteuses</h4>
-        <p>Cas réels audités. 149 000 € d'erreurs évitables en 10h de conception.</p>
+    <div class="coming-grid">
+      <div class="coming-card">
+        <div class="coming-ribbon">🔨 En cours · Q3 2026</div>
+        <div class="coming-icon">🎓</div>
+        <h3 data-fr="Formation vidéo KoboToolbox" data-en="KoboToolbox Video Training">Formation vidéo KoboToolbox</h3>
+        <p data-fr="7 modules vidéo progressifs. De la conception XLSForm au déploiement terrain avancé. Compatible YouTube & Udemy." data-en="7 progressive video modules. From XLSForm design to advanced field deployment. YouTube & Udemy compatible.">7 modules vidéo progressifs. De la conception XLSForm au déploiement terrain avancé.</p>
+        <div class="progress-bar"><div class="progress-fill" style="width:40%"></div></div>
+        <div class="progress-label"><span data-fr="Progression" data-en="Progress">Progression</span><span>40%</span></div>
+      </div>
+
+      <div class="coming-card">
+        <div class="coming-ribbon">🔨 En cours · Q3 2026</div>
+        <div class="coming-icon">📋</div>
+        <h3 data-fr="Pack rapports bailleurs" data-en="Donor Report Pack">Pack rapports bailleurs</h3>
+        <p data-fr="Templates Word + PowerPoint + Excel pour rapports finaux de projets. Formats PAM, UNICEF, FAO, UE et USAID." data-en="Word + PowerPoint + Excel templates for final project reports. PAM, UNICEF, FAO, EU and USAID formats.">Templates Word + PowerPoint + Excel pour rapports finaux de projets. Formats PAM, UNICEF, FAO.</p>
+        <div class="progress-bar"><div class="progress-fill" style="width:25%"></div></div>
+        <div class="progress-label"><span data-fr="Progression" data-en="Progress">Progression</span><span>25%</span></div>
+      </div>
+
+      <div class="coming-card">
+        <div class="coming-ribbon">🔨 En cours · Q4 2026</div>
+        <div class="coming-icon">📊</div>
+        <h3 data-fr="Dashboards sectoriels WASH & Éducation" data-en="WASH & Education Sectoral Dashboards">Dashboards sectoriels WASH & Éducation</h3>
+        <p data-fr="Deux nouveaux fichiers .pbix spécialisés connectés aux templates XLSForm WASH et Éducation du bundle KoboToolbox." data-en="Two new specialized .pbix files connected to the WASH and Education XLSForm templates.">Deux nouveaux fichiers .pbix spécialisés connectés aux templates XLSForm WASH et Éducation.</p>
+        <div class="progress-bar"><div class="progress-fill" style="width:15%"></div></div>
+        <div class="progress-label"><span data-fr="Progression" data-en="Progress">Progression</span><span>15%</span></div>
       </div>
     </div>
-    <div class="module-row">
-      <div class="module-num">1</div>
+
+    <!-- App légumes highlight -->
+    <div class="app-highlight">
       <div>
-        <h4>Architecture XLSForm & Cadre logique</h4>
-        <p>Rétro-ingénierie des indicateurs, matrice de spécification, règles de nommage.</p>
+        <div class="coming-ribbon" style="background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.3);color:white">
+          🌱 En développement · 2026
+        </div>
+        <h3 data-fr="Application mobile — Légumes frais & bio" data-en="Mobile App — Fresh & Organic Vegetables">Application mobile<br>Légumes frais & bio</h3>
+        <p data-fr="Commandez directement auprès des maraîchers locaux de Niamey. Légumes frais, bio, traçables de la parcelle à votre table. Livraison rapide, zéro intermédiaire." data-en="Order directly from local Niamey market gardeners. Fresh, organic, traceable vegetables from the plot to your table. Fast delivery, zero middleman.">
+          Commandez directement auprès des maraîchers locaux de Niamey. Légumes frais, bio, traçables de la parcelle à votre table. Livraison rapide, zéro intermédiaire.
+        </p>
+        <div class="notify-form">
+          <input type="email" class="notify-input"
+                 placeholder="votre@email.com">
+          <button class="notify-btn" onclick="notifyMe()"
+                  data-fr="🔔 Me notifier" data-en="🔔 Notify me">🔔 Me notifier</button>
+        </div>
+      </div>
+      <div class="app-features">
+        <div class="app-feature"><span>🥬</span><span data-fr="Légumes frais récoltés le matin même" data-en="Fresh vegetables harvested the same morning">Légumes frais récoltés le matin même</span></div>
+        <div class="app-feature"><span>🌿</span><span data-fr="100% bio — traçables jusqu'au jardin" data-en="100% organic — traceable to the garden">100% bio — traçables jusqu'au jardin</span></div>
+        <div class="app-feature"><span>🚚</span><span data-fr="Livraison rapide à domicile — Niamey" data-en="Fast home delivery — Niamey">Livraison rapide à domicile — Niamey</span></div>
+        <div class="app-feature"><span>👨‍🌾</span><span data-fr="Revenus directs aux maraîchers locaux" data-en="Direct income to local market gardeners">Revenus directs aux maraîchers locaux</span></div>
+        <div class="app-feature"><span>📱</span><span data-fr="App Android & iOS — paiement Mobile Money" data-en="Android & iOS app — Mobile Money payment">App Android & iOS — paiement Mobile Money</span></div>
       </div>
     </div>
-    <div class="module-row">
-      <div class="module-num">2</div>
-      <div>
-        <h4>Logique de saut & Contraintes</h4>
-        <p>relevant, constraint, calculate. Formulaires dynamiques et intelligents.</p>
-      </div>
-    </div>
-    <div class="module-row">
-      <div class="module-num">3</div>
-      <div>
-        <h4>Boucles & Géolocalisation</h4>
-        <p>begin_repeat, sum(), geopoint, geotrace. Structures complexes maîtrisées.</p>
-      </div>
-    </div>
-    <div class="module-row">
-      <div class="module-num">4</div>
-      <div>
-        <h4>Listes en cascade & Multimédia</h4>
-        <p>choice_filter, image, signature, barcode. Formulaires riches et sécurisés.</p>
-      </div>
-    </div>
-    <div class="module-row">
-      <div class="module-num">5</div>
-      <div>
-        <h4>Gouvernance & Versionnage</h4>
-        <p>Métadonnées d'audit, traçabilité fraude, cycle de vie des formulaires.</p>
-      </div>
-    </div>
-    <div class="module-row">
-      <div class="module-num">6</div>
-      <div>
-        <h4>Bases de données externes</h4>
-        <p>pulldata(), listes de bénéficiaires CSV. Suivi de distribution avancé.</p>
-      </div>
-    </div>
-    <div class="module-row">
-      <div class="module-num">7</div>
-      <div>
-        <h4>Guide administrateur terrain</h4>
-        <p>Comptes, permissions, KoboCollect, export GeoJSON/CSV/Excel.</p>
-      </div>
-    </div>
+
   </div>
-</div>
-
-<hr class="divider">
-
-<!-- ══ POUR QUI ══ -->
-<div style="background:var(--soft); padding:1px 0;">
-<div class="section">
-  <p class="section-label">Pour qui ?</p>
-  <h2 class="section-title">Conçu pour les professionnels du terrain</h2>
-
-  <div class="audience-grid">
-    <div class="audience-card">
-      <div class="audience-icon">📋</div>
-      <h3>Responsables MEAL</h3>
-      <p>Superviseurs de collecte, data managers, chargés de S&E dans des ONG locales ou internationales.</p>
-    </div>
-    <div class="audience-card">
-      <div class="audience-icon">🌍</div>
-      <h3>Consultants indépendants</h3>
-      <p>Évaluateurs, formateurs, experts ICT4D travaillant avec PAM, UNICEF, FAO ou des bailleurs bilatéraux.</p>
-    </div>
-    <div class="audience-card">
-      <div class="audience-icon">🏛️</div>
-      <h3>Services gouvernementaux</h3>
-      <p>Ministères en charge des statistiques, de l'agriculture, de la santé ou de l'éducation au Sahel.</p>
-    </div>
-    <div class="audience-card">
-      <div class="audience-icon">🎓</div>
-      <h3>Chercheurs & Étudiants</h3>
-      <p>Doctorants en sciences sociales, masters en développement international, écoles de statistique.</p>
-    </div>
-  </div>
-</div>
-</div>
+</section>
 
 <hr class="divider">
 
 <!-- ══ AUTEUR ══ -->
-<div class="section">
-  <p class="section-label">L'auteur</p>
-  <h2 class="section-title">Qui est derrière ce guide ?</h2>
-  <div class="author-section">
-    <div class="author-avatar">AR</div>
-    <div>
-      <div class="author-name">Aminou RABIOU</div>
-      <div class="author-title">Expert SI &amp; ICT4D · Niamey, Niger</div>
-      <div class="author-creds">
-        <span class="cred">+8 ans MEAL terrain</span>
-        <span class="cred">+50 audits post-mortem</span>
-        <span class="cred">+100 déploiements Kobo</span>
-        <span class="cred">Afrique · Moyen-Orient</span>
+<section id="auteur">
+  <div class="section-inner">
+    <p class="section-label" data-fr="Qui suis-je ?" data-en="Who am I?">Qui suis-je ?</p>
+    <h2 class="section-title" data-fr="À propos" data-en="About">À propos</h2>
+    <div class="author-section">
+      <div class="author-avatar-lg">AR</div>
+      <div>
+        <div class="author-name">Aminou RABIOU</div>
+        <div class="author-title">Expert SI & ICT4D · Niamey, Niger</div>
+        <div class="author-creds">
+          <span class="cred" data-fr="+8 ans terrain" data-en="+8 years field">+8 ans terrain</span>
+          <span class="cred" data-fr="+100 déploiements Kobo" data-en="+100 Kobo deployments">+100 déploiements Kobo</span>
+          <span class="cred" data-fr="+50 audits post-mortem" data-en="+50 post-mortem audits">+50 audits post-mortem</span>
+          <span class="cred">Power BI · DAX</span>
+          <span class="cred">XLSForm · ODK</span>
+          <span class="cred">Sahel · Afrique de l'Ouest</span>
+        </div>
+        <p class="author-bio"
+           data-fr="Spécialisé dans la digitalisation des processus MEAL et l'analyse de données de résilience, j'ai accompagné des projets financés par le PAM, UNICEF, la FAO et la Croix-Rouge à travers l'Afrique de l'Ouest et le Sahel. Mon approche combine rigueur méthodologique, pragmatisme terrain et maîtrise des outils technologiques adaptés aux contextes à faible connectivité."
+           data-en="Specialized in MEAL process digitalization and resilience data analysis, I have supported projects funded by WFP, UNICEF, FAO and the Red Cross across West Africa and the Sahel. My approach combines methodological rigor, field pragmatism and mastery of technology tools adapted to low-connectivity contexts.">
+          Spécialisé dans la digitalisation des processus MEAL et l'analyse de données de résilience, j'ai accompagné des projets financés par le PAM, UNICEF, la FAO et la Croix-Rouge à travers l'Afrique de l'Ouest et le Sahel.
+        </p>
+        <div class="author-contacts">
+          <a href="mailto:rabiou.aminou@gmail.com" class="contact-link">
+            ✉️ rabiou.aminou@gmail.com
+          </a>
+          <a href="https://wa.me/22796325050" class="contact-link green">
+            💬 +227 96 32 50 50
+          </a>
+          <a href="https://rabiouaminou.github.io/kobotoolbox-meal" class="contact-link orange"
+             data-fr="📘 Bundle KoboToolbox" data-en="📘 KoboToolbox Bundle">
+            📘 Bundle KoboToolbox
+          </a>
+        </div>
       </div>
-      <p class="author-bio">
-        Spécialisé dans la digitalisation des processus MEAL et l'analyse de données de résilience,
-        Aminou a accompagné des projets financés par le PAM, UNICEF, la FAO et la Croix-Rouge
-        à travers l'Afrique de l'Ouest et le Sahel. Ce guide condense 8 ans d'erreurs
-        observées, corrigées et documentées sur le terrain.
-      </p>
     </div>
   </div>
-</div>
-
-<hr class="divider">
-
-<!-- ══ FAQ ══ -->
-<div class="section">
-  <p class="section-label">Questions fréquentes</p>
-  <h2 class="section-title">FAQ</h2>
-  <div class="faq">
-    <div class="faq-item">
-      <div class="faq-q">📦 Qu'est-ce que je reçois exactement après l'achat ?</div>
-      <div class="faq-a">Un lien de téléchargement immédiat avec : le manuel PDF (53 pages), les 5 fichiers Excel XLSForm (.xlsx) prêts à déployer sur KoboToolbox, et le guide de personnalisation Word (.docx).</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">🌐 Les templates fonctionnent-ils sur le serveur OCHA ET le serveur global ?</div>
-      <div class="faq-a">Oui. Tous les templates respectent le standard XLSForm universel et sont compatibles avec les deux serveurs KoboToolbox (kf.kobotoolbox.org et kc.kobotoolbox.org).</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">💳 Comment payer depuis le Niger / l'Afrique ?</div>
-      <div class="faq-a">3 options disponibles :<br><br>🔵 <strong>Gumroad</strong> — Carte bancaire internationale ou Payoneer (lien dans ce site, téléchargement automatique après paiement)<br><br>🟡 <strong>Wave</strong> — Envoyez 20 000 FCFA au <strong>+227 96 32 50 50</strong> puis envoyez une capture d'écran par WhatsApp au même numéro.<br><br>🟢 <strong>MyNita</strong> — Paiement mobile Niger au <strong>+227 96 32 50 50</strong> puis confirmation par WhatsApp.<br><br>Le bundle vous est envoyé par WhatsApp dans les 30 minutes suivant la confirmation.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">🔧 J'ai besoin d'aide pour adapter un template à mon projet. Vous proposez du support ?</div>
-      <div class="faq-a">Oui. Des sessions de consulting individuelles et des formations sur mesure sont disponibles. Contactez : rabiou.aminou@gmail.com</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">📱 Faut-il un abonnement KoboToolbox payant pour utiliser les templates ?</div>
-      <div class="faq-a">Non. KoboToolbox est gratuit. Les templates fonctionnent sur la version gratuite du serveur humanitaire OCHA (recommandée pour les ONG) comme sur le serveur global.</div>
-    </div>
-  </div>
-</div>
+</section>
 
 <!-- ══ CTA FINAL ══ -->
 <section class="cta-final">
-  <h2>Prêt à transformer vos collectes de données ?</h2>
-  <p>Rejoignez les professionnels MEAL qui collectent des données propres, traçables et exploitables dès le premier jour de terrain.</p>
-  <div class="cta-buttons">
-    <a href="#gumroad-link" class="btn-cta-primary">🛒 Acheter sur Gumroad (USD)</a>
-    <a href="https://wa.me/22796325050" style="background:linear-gradient(135deg,#25D366,#1aab52);color:white;padding:16px 36px;border-radius:12px;font-size:1rem;font-weight:700;text-decoration:none;transition:transform .2s;">📱 Wave / MyNita — WhatsApp</a>
-    <a href="mailto:rabiou.aminou@gmail.com" class="btn-cta-secondary">✉️ Contacter l'auteur</a>
-  </div>
-  <p style="margin-top:24px; font-size:.8rem; opacity:.6;">
-    Disponible sur Gumroad (Payoneer/Carte) · Wave · MyNita &nbsp;|&nbsp; WhatsApp : +227 96 32 50 50
+  <h2 data-fr="Prêt à transformer votre travail ?" data-en="Ready to transform your work?">Prêt à transformer votre travail ?</h2>
+  <p data-fr="Produits disponibles immédiatement. Paiement par Wave, MyNita ou Gumroad. Livraison instantanée après confirmation."
+     data-en="Products available immediately. Payment by Wave, MyNita or Gumroad. Instant delivery after confirmation.">
+    Produits disponibles immédiatement. Paiement par Wave, MyNita ou Gumroad. Livraison instantanée après confirmation.
   </p>
+  <div class="cta-btns">
+    <a href="#produits" class="btn-cta primary"
+       data-fr="🛒 Voir les produits" data-en="🛒 See Products">🛒 Voir les produits</a>
+    <a href="https://wa.me/22796325050" class="btn-cta secondary"
+       data-fr="💬 WhatsApp +227 96 32 50 50" data-en="💬 WhatsApp +227 96 32 50 50">💬 WhatsApp +227 96 32 50 50</a>
+    <a href="mailto:rabiou.aminou@gmail.com" class="btn-cta secondary"
+       data-fr="✉️ Email" data-en="✉️ Email">✉️ Email</a>
+  </div>
 </section>
 
 <footer>
-  <p>© 2026 <strong style="color:white">Aminou RABIOU</strong> · Expert SI &amp; ICT4D · Niamey, Niger</p>
-  <p style="margin-top:8px"><a href="mailto:rabiou.aminou@gmail.com">rabiou.aminou@gmail.com</a> &nbsp;·&nbsp; <a href="https://wa.me/22796325050">WhatsApp : +227 96 32 50 50</a></p>
+  <p>© 2026 <strong style="color:white">Aminou RABIOU</strong> · Expert SI & ICT4D · Niamey, Niger</p>
+  <p style="margin-top:8px">
+    <a href="mailto:rabiou.aminou@gmail.com">rabiou.aminou@gmail.com</a>
+    &nbsp;·&nbsp;
+    <a href="https://wa.me/22796325050">WhatsApp : +227 96 32 50 50</a>
+  </p>
 </footer>
 
+<a href="https://wa.me/22796325050" class="fab-wa">💬 Commander</a>
+<a href="#" class="fab-top">↑</a>
 
-<a href="#" style="
-  position:fixed; bottom:28px; right:28px;
-  background:#014D6D; color:white;
-  width:48px; height:48px; border-radius:50%;
-  display:flex; align-items:center; justify-content:center;
-  font-size:1.3rem; text-decoration:none;
-  box-shadow:0 4px 16px rgba(1,77,109,.35);
-  z-index:999;
-  transition: transform .2s;
-" title="Retour en haut" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">↑</a>
+<script>
+// ── Gestion langue ────────────────────────────────────────────────────────
+let currentLang = 'fr';
 
-<a href="https://wa.me/22796325050" style="
-  position:fixed; bottom:28px; left:28px;
-  background:#25D366; color:white;
-  padding:12px 20px; border-radius:99px;
-  display:flex; align-items:center; gap:8px;
-  font-family:'DM Sans',sans-serif; font-size:.85rem; font-weight:700;
-  text-decoration:none;
-  box-shadow:0 4px 16px rgba(37,211,102,.4);
-  z-index:999;
-  transition: transform .2s;
-" title="WhatsApp" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
-  💬 Commander
-</a>
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
 
+  document.querySelectorAll('[data-fr]').forEach(el => {
+    const val = el.getAttribute('data-' + lang);
+    if (!val) return;
+    // Boutons avec innerHTML
+    if (el.tagName === 'A' || el.tagName === 'BUTTON' || el.tagName === 'H1') {
+      el.innerHTML = val;
+    } else {
+      el.textContent = val;
+    }
+  });
+  document.documentElement.lang = lang;
+}
+
+// ── Notification app légumes ──────────────────────────────────────────────
+function notifyMe() {
+  const input = document.querySelector('.notify-input');
+  const email = input.value.trim();
+  if (!email || !email.includes('@')) {
+    input.style.border = '2px solid #C0392B';
+    return;
+  }
+  input.style.border = 'none';
+  const btn = document.querySelector('.notify-btn');
+  btn.textContent = currentLang === 'fr' ? '✅ Inscrit !' : '✅ Registered!';
+  btn.style.background = '#1A7F4B';
+  input.value = '';
+}
+
+// ── Animation progress bars ───────────────────────────────────────────────
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll('.progress-fill').forEach(bar => {
+        const w = bar.style.width;
+        bar.style.width = '0%';
+        setTimeout(() => { bar.style.width = w; }, 200);
+      });
+    }
+  });
+}, { threshold: 0.3 });
+
+document.querySelectorAll('.coming-card').forEach(c => observer.observe(c));
+</script>
 </body>
 </html>
